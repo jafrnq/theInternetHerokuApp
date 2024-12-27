@@ -1,0 +1,11 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+
+
+<suite name="The Internet Heroku App Test Suite">
+    <test name="The Internet Heroku App Test">
+
+         <packages>
+            <package name="java.testClasses"/>
+        </packages>
+    </test>
+</suite>
