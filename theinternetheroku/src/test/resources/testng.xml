@@ -6,6 +6,11 @@
 
          <packages>
             <package name="java.testClasses"/>
-        </packages>
+         </packages>
+         
+         
+         <packages>
+            <package name="java.Pages"/>
+         </packages>
     </test>
 </suite>

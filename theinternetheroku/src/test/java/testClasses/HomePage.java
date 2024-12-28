@@ -1,7 +1,9 @@
 package testClasses;
 import static org.testng.Assert.assertTrue;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,6 +16,10 @@ public class HomePage {
     public WebDriver driver;
     public Actions actions;
     public WebDriverWait wait;
+
+
+    By liElements = By.cssSelector("ul li");
+
 
     @BeforeTest
     public void driverSetUp(){
@@ -31,9 +37,24 @@ public class HomePage {
     }
 
     @Test
-    public void homePageTest(){
-        System.out.println("Tangina mo jehphoy dizon");
+    public void elementsVisibilityTest (){ //Test if the elements are visible
+        System.out.println("Starting test");
+
+        WebElement headingMessage = driver.findElement(By.className("heading"));
+        WebElement subheadingMessage = driver.findElement(By.tagName("h2"));
+        // int liElements = driver.findElements(liElements).size(); 
+    
 
         assertTrue(driver.getTitle().equals("The Internet"), "Title is not correct");
+        assertTrue(headingMessage.isDisplayed() && 
+                   subheadingMessage.isDisplayed() && 
+                   liElements == 44, "Elements are not visible");
     }
+
+    @Test
+    public void elementsClickTest (){ //Test if the elements are clickable
+
+    }
+
+
 }
