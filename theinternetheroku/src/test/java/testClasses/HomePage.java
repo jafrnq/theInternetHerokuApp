@@ -1,7 +1,6 @@
 package testClasses;
 import static org.testng.Assert.assertTrue;
 import utilityClasses.BaseTest;
-import utilityClasses.UtilityMethods;
 
 import java.time.Duration;
 import java.util.List;
