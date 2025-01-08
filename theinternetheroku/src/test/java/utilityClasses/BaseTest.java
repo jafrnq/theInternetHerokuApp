@@ -12,14 +12,16 @@ import org.testng.annotations.BeforeTest;
 public class BaseTest {
     protected WebDriver driver;
     protected UtilityMethods utils;  
-    public Actions actions;
+    protected AssertionMethods asserts;
     protected WebDriverWait wait;
+    public Actions actions;
     
     @BeforeTest
     public void driverSetUp() {
         System.out.println("Driver set up");
         driver = new ChromeDriver();
         utils = new UtilityMethods(driver);  // Pass the driver here
+        asserts = new AssertionMethods(driver);
         driver.get("https://the-internet.herokuapp.com/");
     }
 

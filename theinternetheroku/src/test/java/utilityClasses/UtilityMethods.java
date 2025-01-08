@@ -26,11 +26,20 @@ public class UtilityMethods{
         System.out.println("Clicked on " + elementName);
     }
 
-
-    //Assertions
     //Print out methods 
 
     public void displayHeadingText(String text){
         System.out.println("==================================" + text + "==================================");
+    }
+
+
+    //Wait methods
+
+    public void explicitWaitForSec(int seconds){
+        try {
+            Thread.sleep(seconds * 1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 }
