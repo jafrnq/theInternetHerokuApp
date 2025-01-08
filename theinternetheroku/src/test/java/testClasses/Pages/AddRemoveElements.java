@@ -13,6 +13,8 @@ import org.testng.annotations.Test;
 public class AddRemoveElements extends BaseTest{
     By addElement = By.cssSelector("button[onclick='addElement()']");
     By deleteElementsContainer = By.id("elements");
+    AssertionMethods assertionMethods = new AssertionMethods(driver);
+
 
     @Test
     public void testElementsVisibility(){
