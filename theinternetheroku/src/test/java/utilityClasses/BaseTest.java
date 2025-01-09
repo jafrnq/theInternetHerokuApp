@@ -20,14 +20,16 @@ public class BaseTest {
     public void driverSetUp() {
         System.out.println("Driver set up");
         driver = new ChromeDriver();
+        actions = new Actions(driver);
         utils = new UtilityMethods(driver);  // Pass the driver here
         asserts = new AssertionMethods(driver);
         driver.get("https://the-internet.herokuapp.com/");
     }
-
+    
     @AfterMethod
     public void postTestActions(){
-        System.out.println("Test Completed");
+        System.out.println("Test Completed" + "\n");
+        driver.get("https://the-internet.herokuapp.com/");
     }
 
     @AfterClass

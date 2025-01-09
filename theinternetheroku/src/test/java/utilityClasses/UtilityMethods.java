@@ -42,4 +42,16 @@ public class UtilityMethods{
             e.printStackTrace();
         }
     }
+
+
+    //modalAlerts
+    public void acceptAlert(){
+        driver.switchTo().alert().accept();
+    }
+
+    public String getAlertText(){
+        String alertText = driver.switchTo().alert().getText();
+        System.out.println("Alert text is: " + alertText);
+        return alertText;
+    }
 }
