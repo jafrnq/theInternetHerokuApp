@@ -5,6 +5,7 @@ import java.time.Duration;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import static org.testng.Assert.assertTrue;
 
@@ -34,6 +35,14 @@ public class UtilityMethods{
 
 
     //Wait methods
+
+    public void waitForElementToDisappear(WebElement element){
+        wait.until(ExpectedConditions.invisibilityOf(element));
+    }
+
+    public void waitForElementToAppear(By element){
+        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    }
 
     public void explicitWaitForSec(int seconds){
         try {
