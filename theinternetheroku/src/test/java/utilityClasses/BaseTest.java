@@ -1,6 +1,7 @@
 // BaseTest.java
 package utilityClasses;
 
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
@@ -14,6 +15,7 @@ public class BaseTest {
     protected UtilityMethods utils;  
     protected AssertionMethods asserts;
     protected WebDriverWait wait;
+    protected JavascriptExecutor js;
     public Actions actions;
     
     @BeforeTest
@@ -23,6 +25,8 @@ public class BaseTest {
         actions = new Actions(driver);
         utils = new UtilityMethods(driver);  // Pass the driver here
         asserts = new AssertionMethods(driver);
+        js = (JavascriptExecutor) driver;
+
         driver.get("https://the-internet.herokuapp.com/");
     }
     
