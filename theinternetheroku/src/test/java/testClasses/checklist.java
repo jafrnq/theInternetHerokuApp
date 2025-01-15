@@ -9,7 +9,7 @@ public class checklist {
 /* 
  //DONE
 
- 
+
  // A/B Testing
  // Add/Remove Elements
  // Basic Auth (user and pass: admin)
@@ -19,6 +19,7 @@ public class checklist {
  // Drag and Drop
  // Dynamic Controls
  // Dropdown
+ // Floating Menu
 */
 
 // Challenging DOM
@@ -30,7 +31,6 @@ public class checklist {
 // Exit Intent
 // File Download
 // File Upload
-// Floating Menu
 // Forgot Password
 // Form Authentication
 // Frames

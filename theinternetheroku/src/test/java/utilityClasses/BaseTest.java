@@ -26,7 +26,6 @@ public class BaseTest {
         utils = new UtilityMethods(driver);  // Pass the driver here
         asserts = new AssertionMethods(driver);
         js = (JavascriptExecutor) driver;
-
         driver.get("https://the-internet.herokuapp.com/");
     }
     
@@ -39,6 +38,7 @@ public class BaseTest {
     @AfterClass
     public void driverTearDown(){
         System.out.println("Driver tear down");
+        
         driver.quit();
     }
 }

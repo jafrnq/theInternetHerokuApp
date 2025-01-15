@@ -6,7 +6,6 @@ import java.util.List;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
@@ -57,7 +56,7 @@ public class FloatingMenu extends BaseTest{
     public void testMenuStickyness(){
         //navigate to the bottom of the page
         WebElement finalParagraph = driver.findElement(By.cssSelector(".example .row div p:nth-of-type(10)"));
-        js .executeScript("arguments[0].scrollIntoView();", finalParagraph);
+        js.executeScript("arguments[0].scrollIntoView();", finalParagraph);
         
         clickAllMenuButtons();
         System.out.println("Menu is working at the bottom of the page");
