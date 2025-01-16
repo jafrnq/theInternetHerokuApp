@@ -25,36 +25,29 @@ public class HorizontalSlider extends BaseTest{
     
     @Test
     public void testSliderUsingArrowKeys(){
-        int steps = (4*2);
-        WebElement slider = driver.findElement(sliderElement);
-        
-        assertTrue(slider.isDisplayed());
+        WebElement sliderElement = getSliderElement();
         
         //use arrow keys to control the slider
-        for(int i = 0; i < steps; i++){
-            driver.findElement(sliderElement).sendKeys(Keys.ARROW_RIGHT);
+        for(int i = 0; i < (4 * 2); i++){
+            sliderElement.sendKeys(Keys.ARROW_RIGHT);
         }
         
         //Assert value, for tomorrow 
         float currSliderValue = getSliderValue();
-        assertEquals(currSliderValue, 4.0);
+        assertEquals(currSliderValue, 4.0, "Slider value is incorrect");
     }
+
+    //HELPER METHODS===================================================================================================
+    public WebElement getSliderElement(){
+        WebElement slider = driver.findElement(sliderElement);
+        assertTrue(slider.isDisplayed());
+
+        return slider;
+        }
     
     public float getSliderValue(){
         float sliderValue = Float.parseFloat(driver.findElement(By.id("range")).getText());
         return sliderValue;
-    }
-    
-    // @Test
-    // public void testSliderUsingClick(){
-    //     // WebElement slider = driver.findElement(sliderElement);
-    //     // actions.click(slider).perform();
-    //     // utils.explicitWaitForSec(5);
-    // }
+        }
 
-    // @Test
-    // public void testSliderUsingClickAndDrag(){
-    //     WebElement slider = driver.findElement(sliderElement);
-    //     actions.dragAndDropBy(slider, 10, 0); //notworking
-    //     }
     }
