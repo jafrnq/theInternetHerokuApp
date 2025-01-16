@@ -1,22 +1,25 @@
 package utilityClasses;
 
 import java.time.Duration;
+import java.util.Random;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import static org.testng.Assert.assertTrue;
+// import static org.testng.Assert.assertTrue;
 
 public class UtilityMethods{
     private WebDriver driver;
     private WebDriverWait wait;
+    protected Random random;
     
       // Receive driver instance using constructor
       public UtilityMethods(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.random = new Random();
     }
     
     
@@ -62,5 +65,10 @@ public class UtilityMethods{
         String alertText = driver.switchTo().alert().getText();
         System.out.println("Alert text is: " + alertText);
         return alertText;
+    }
+
+    //randomGenerators
+    public int ranIntGen (int min, int max){
+        return random.nextInt(max - min + 1) + min;
     }
 }

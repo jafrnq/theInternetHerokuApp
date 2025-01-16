@@ -20,6 +20,7 @@ public class checklist {
  // Dynamic Controls
  // Dropdown
  // Floating Menu
+ // Horizontal Slider
 */
 
 // Challenging DOM
@@ -35,7 +36,6 @@ public class checklist {
 // Form Authentication
 // Frames
 // Geolocation
-// Horizontal Slider
 // Hovers
 // Infinite Scroll
 // Inputs
