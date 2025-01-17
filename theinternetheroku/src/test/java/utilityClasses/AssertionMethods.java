@@ -21,22 +21,28 @@ public class AssertionMethods {
     }
 
 
-    //Assertion Methods
-    public void testHeaderContent(String expectedHeaderText){
-        try {
-            WebElement headerTextH3 = driver.findElement(By.tagName("h3"));
-        } catch (NoSuchElementException e) {
-            String headerTextH4 = driver.findElement(By.tagName("h4")).getText();
-            assertTrue(headerTextH4.equals(expectedHeaderText), "Header is not displayed or incorrect");
-        }
-        
-        try {
-            WebElement headerTextH4 = driver.findElement(By.tagName("h4"));
-        } catch (NoSuchElementException e) {
-            String headerTextH3 = driver.findElement(By.tagName("h3")).getText();
-            assertTrue(headerTextH3.equals(expectedHeaderText), "Header is not displayed or incorrect");
+// Assertion Methods
+public void testHeaderContent(String expectedHeaderText) {
+    try {
+        WebElement headerTextH2 = driver.findElement(By.tagName("h2"));
+        assertTrue(headerTextH2.getText().equals(expectedHeaderText), "Header is not displayed or incorrect");
+    } catch (NoSuchElementException e) {
+        // Do nothing if h2 is not found
         }
 
+    try {
+        WebElement headerTextH3 = driver.findElement(By.tagName("h3"));
+        assertTrue(headerTextH3.getText().equals(expectedHeaderText), "Header is not displayed or incorrect");
+    } catch (NoSuchElementException e) {
+        // Do nothing if h3 is not found
+        }
 
+    try {
+        WebElement headerTextH4 = driver.findElement(By.tagName("h4"));
+        assertTrue(headerTextH4.getText().equals(expectedHeaderText), "Header is not displayed or incorrect");
+    } catch (NoSuchElementException e) {
+        // Do nothing if h4 is not found
+        }
     }
+
 }

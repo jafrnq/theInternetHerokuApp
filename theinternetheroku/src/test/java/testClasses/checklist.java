@@ -21,6 +21,7 @@ public class checklist {
  // Dropdown
  // Floating Menu
  // Horizontal Slider
+ // Hovers
 */
 
 // Challenging DOM
@@ -36,7 +37,6 @@ public class checklist {
 // Form Authentication
 // Frames
 // Geolocation
-// Hovers
 // Infinite Scroll
 // Inputs
 // JQuery UI Menus

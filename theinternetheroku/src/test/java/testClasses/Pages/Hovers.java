@@ -52,10 +52,5 @@ public class Hovers extends BaseTest{
         System.out.println(profileName);
 
     }
-
-    
-    
-
-    
     
 }

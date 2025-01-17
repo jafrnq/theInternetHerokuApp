@@ -13,7 +13,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 public class UtilityMethods{
     private WebDriver driver;
     private WebDriverWait wait;
-    protected Random random;
+    private Random random;
     
       // Receive driver instance using constructor
       public UtilityMethods(WebDriver driver) {
