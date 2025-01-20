@@ -22,6 +22,7 @@ public class checklist {
  // Floating Menu
  // Horizontal Slider
  // Hovers
+ // Forgot Password
 */
 
 // Challenging DOM
@@ -33,7 +34,6 @@ public class checklist {
 // Exit Intent
 // File Download
 // File Upload
-// Forgot Password
 // Form Authentication
 // Frames
 // Geolocation
