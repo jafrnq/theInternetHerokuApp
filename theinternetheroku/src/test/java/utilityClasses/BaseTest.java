@@ -20,7 +20,7 @@ public class BaseTest {
     protected AssertionMethods asserts;
     
     protected WebDriver driver;
-    // protected WebDriverWait wait;
+    protected WebDriverWait wait;
     protected JavascriptExecutor js;
     public Actions actions;
     
@@ -30,7 +30,7 @@ public class BaseTest {
         driver = new ChromeDriver();
         actions = new Actions(driver);
         utils = new UtilityMethods(driver);  // Pass s
-        // wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         js = (JavascriptExecutor) driver;
         driver.get("https://the-internet.herokuapp.com/");
     }
