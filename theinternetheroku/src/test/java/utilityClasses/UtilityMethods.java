@@ -15,8 +15,8 @@ public class UtilityMethods{
     private WebDriverWait wait;
     private Random random;
     
-      // Receive driver instance using constructor
-      public UtilityMethods(WebDriver driver) {
+    // Receive driver instance using constructor
+    public UtilityMethods(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         this.random = new Random();
@@ -43,8 +43,12 @@ public class UtilityMethods{
         wait.until(ExpectedConditions.invisibilityOf(element));
     }
 
-    public void waitForElementToAppear(By element){
-        wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    // public void waitForElementToAppear(By element){
+    //     wait.until(ExpectedConditions.visibilityOfElementLocated(element));
+    // }
+    
+    public WebElement waitForElementToAppear(By element){
+        return wait.until(ExpectedConditions.visibilityOfElementLocated(element));
     }
 
     public void explicitWaitForSec(int seconds){

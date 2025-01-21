@@ -10,6 +10,8 @@ import org.testng.annotations.Test;
 
 import utilityClasses.BaseTest;
 
+
+//Class currently not possible to automate
 public class ExitIntent extends BaseTest{
     By page = By.cssSelector("#content .example");
     // By flashMessZone = By.cssSelector("#flash-messages");
