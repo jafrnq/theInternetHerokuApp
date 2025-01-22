@@ -23,6 +23,7 @@ public class checklist {
  // Horizontal Slider
  // Hovers
  // Forgot Password
+ // Entry Ad
 */
 
 // Challenging DOM
@@ -30,7 +31,6 @@ public class checklist {
 // Disappearing Elements
 // Dynamic Content
 // Dynamic Loading
-// Entry Ad
 // Exit Intent
 // File Download
 // File Upload
