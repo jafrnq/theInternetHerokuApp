@@ -26,24 +26,24 @@ public class Download extends BaseTest{
 
     @Test
     public void testDownloadFile(){
-        WebElement downloadLogo = utils.waitForElementToAppear(By.linkText("logo.png"));
-
+        WebElement downloadLogo = utils.waitForElementToAppear(By.linkText("min.jpeg"));
         downloadLogo.click();
-        utils.explicitWaitForSec(5);
-
+        
         //Code directory 
     }
-
+    
     @Test
     public void downloadRandomFile(){
-        utils.clickElement("logo.png"); 
+        clickRandomItem();
+        utils.explicitWaitForSec(5);
     }
 
     @Test
     public void downloadMultipleRandomFile(){
-        int rere = utils.ranIntGen(1, 48);
+        List<WebElement> downloadButtons = driver.findElements(By.cssSelector(".example a"));
+        int itemCount = utils.ranIntGen(1, downloadButtons.size());
 
-        for (int i = 0; i < rere; i++ ){
+        for (int i = 0; i < itemCount; i++ ){
             clickRandomItem();
         }
     }
@@ -51,6 +51,7 @@ public class Download extends BaseTest{
 
     public void clickRandomItem(){
         List<WebElement> downloadButtons = driver.findElements(By.cssSelector(".example a"));
+        System.out.println("Number of downloadable files" + downloadButtons.size());
 
         int randomInt = utils.ranIntGen(1, downloadButtons.size());
         WebElement randomItem = downloadButtons.get(randomInt);
@@ -60,6 +61,6 @@ public class Download extends BaseTest{
     }
 
 
-    public void assertFileInDownloads(){}//to do 
+    public void assertFileInDownloads(){}//to do tomorrow
     
 }

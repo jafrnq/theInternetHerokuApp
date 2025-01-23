@@ -16,6 +16,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class BaseTest {
@@ -26,19 +27,23 @@ public class BaseTest {
     protected JavascriptExecutor js;
     public Actions actions;
 
-    // protected String downloadPath  = "G:/CODES SA SSD/Automation things/Selenium/theInternetHerokuApp/theinternetheroku/src/test/resourcesdownloads";
-    
-    // HashMap<String, Object> chromePrefs = new HashMap<>();
-    // chromePrefs.put("download.default_directory", downloadPath);
-    // chromePrefs.put("download.prompt_for_download", false);
-    // chromePrefs.put("download.directory_upgrade", true);
-    // chromePrefs.put("safebrowsing.enabled" true);
-    
+    protected String downloadPath  = "G:\\CODES SA SSD\\Automation things\\Selenium\\theInternetHerokuApp\\theinternetheroku\\src\\test\\resources\\downloads";
     
     @BeforeTest
     public void driverSetUp() {
+
+        HashMap<String, Object> chromePrefs = new HashMap<>();
+            chromePrefs.put("download.default_directory", downloadPath);
+            chromePrefs.put("download.prompt_for_download", false);
+            chromePrefs.put("download.directory_upgrade", true);
+            chromePrefs.put("safebrowsing.enabled", true);
+        
+        //Setting download path
+        ChromeOptions options = new ChromeOptions();
+        options.setExperimentalOption("prefs", chromePrefs);
+        driver = new ChromeDriver(options);
+    
         System.out.println("Driver set up");
-        driver = new ChromeDriver();
         actions = new Actions(driver);
         utils = new UtilityMethods(driver);  // Pass
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -50,6 +55,7 @@ public class BaseTest {
     public void postTestActions(){
         System.out.println("Test Completed" + "\n");
         driver.get("https://the-internet.herokuapp.com/");
+        utils.deleteAllFileInDirectory(downloadPath);
     }
 
     @AfterClass

@@ -1,5 +1,7 @@
 package utilityClasses;
 
+import java.io.File;
+import java.io.IOException;
 import java.time.Duration;
 import java.util.Random;
 
@@ -8,6 +10,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.apache.commons.io.FileUtils;
 // import static org.testng.Assert.assertTrue;
 
 public class UtilityMethods{
@@ -75,4 +78,23 @@ public class UtilityMethods{
     public int ranIntGen (int min, int max){
         return random.nextInt(max - min + 1) + min;
     }
+
+
+    //file management
+    public void deleteAllFileInDirectory(String directoryPath){
+        File folder = new File(directoryPath);
+
+        if(folder.exists() && folder.isDirectory()){
+            try {
+            FileUtils.cleanDirectory(folder);
+        } catch (IOException e){
+            e.printStackTrace();
+            System.out.println("Failed to clean directory: " + directoryPath);
+            }
+        } else {
+            System.out.println("Directory does not exist or path is incorrect");
+        } 
+    }
+
+    //End of utility class
 }
