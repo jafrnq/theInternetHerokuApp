@@ -1,5 +1,6 @@
 package utilityClasses;
 
+import java.io.File;
 import java.time.Duration;
 
 import org.openqa.selenium.WebDriver;
@@ -10,14 +11,17 @@ import org.openqa.selenium.NoSuchElementException;
 
 import static org.testng.Assert.assertTrue;
 
-public class AssertionMethods {
+public class AssertionMethods{
 
     private WebDriver driver;
     private WebDriverWait wait;
+    public String downloadPath  = "G:\\CODES SA SSD\\Automation things\\Selenium\\theInternetHerokuApp\\theinternetheroku\\src\\test\\resources\\downloads";
+
 
     public AssertionMethods(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.downloadPath = downloadPath;
     }
 
 
@@ -44,5 +48,15 @@ public void testHeaderContent(String expectedHeaderText) {
         // Do nothing if h4 is not found
         }
     }
+
+
+        public void assertFileInDownloads(String fileName){
+        System.out.println("File name" + fileName);
+        File downloadedFile = new File(downloadPath, fileName);
+        assertTrue(downloadedFile.exists(), "File not found in downloads folder" + fileName);
+
+        System.out.println(fileName + " is found in downloads folder");
+    }
+
 
 }

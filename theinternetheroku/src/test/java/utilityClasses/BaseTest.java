@@ -46,6 +46,7 @@ public class BaseTest {
         System.out.println("Driver set up");
         actions = new Actions(driver);
         utils = new UtilityMethods(driver);  // Pass
+        asserts = new AssertionMethods(driver); // Pass
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         js = (JavascriptExecutor) driver;
         driver.get("https://the-internet.herokuapp.com/");

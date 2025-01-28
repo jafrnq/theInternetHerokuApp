@@ -1,5 +1,7 @@
 package utilityClasses;
 
+import static org.testng.Assert.assertTrue;
+
 import java.io.File;
 import java.io.IOException;
 import java.time.Duration;
@@ -13,7 +15,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.apache.commons.io.FileUtils;
 // import static org.testng.Assert.assertTrue;
 
-public class UtilityMethods{
+public class UtilityMethods extends BaseTest{
     private WebDriver driver;
     private WebDriverWait wait;
     private Random random;
@@ -95,6 +97,8 @@ public class UtilityMethods{
             System.out.println("Directory does not exist or path is incorrect");
         } 
     }
+
+
 
     //End of utility class
 }

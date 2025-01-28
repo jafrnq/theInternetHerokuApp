@@ -1,6 +1,7 @@
 package testClasses.Pages;
 
 import static org.testng.Assert.assertEquals;
+// import static org.testng.Assert.assertTrue;
 
 import java.util.List;
 
@@ -23,19 +24,23 @@ public class Download extends BaseTest{
         assertEquals(driver.findElement(By.tagName("h3")).getText(), "File Downloader");
     }
 
-
+    //Test Methods======================================================================================================
     @Test
     public void testDownloadFile(){
-        WebElement downloadLogo = utils.waitForElementToAppear(By.linkText("min.jpeg"));
-        downloadLogo.click();
+        List<WebElement> downloadButtons = driver.findElements(By.cssSelector(".example a"));
+        WebElement firstDownloadFile = downloadButtons.get(0);
         
-        //Code directory 
+        firstDownloadFile.click();
+        utils.explicitWaitForSec(1);
+
+        String fileName = firstDownloadFile.getText();
+        asserts.assertFileInDownloads(fileName);
+        
     }
     
     @Test
     public void downloadRandomFile(){
         clickRandomItem();
-        utils.explicitWaitForSec(5);
     }
 
     @Test
@@ -45,22 +50,26 @@ public class Download extends BaseTest{
 
         for (int i = 0; i < itemCount; i++ ){
             clickRandomItem();
+            System.out.println("Downloaded " + i + " files");
         }
     }
 
-
+    //Helper Methods=========================================================================================================
     public void clickRandomItem(){
         List<WebElement> downloadButtons = driver.findElements(By.cssSelector(".example a"));
         System.out.println("Number of downloadable files" + downloadButtons.size());
 
         int randomInt = utils.ranIntGen(1, downloadButtons.size());
         WebElement randomItem = downloadButtons.get(randomInt);
+        String fileName = randomItem.getText();
 
-        System.out.println("Random item is: "+ randomItem.getText());
+        System.out.println("Downloaded file: "+ randomItem);
         downloadButtons.get(randomInt).click();
+        
+        utils.explicitWaitForSec(1);
+        asserts.assertFileInDownloads(fileName);
     }
 
 
-    public void assertFileInDownloads(){}//to do tomorrow
     
 }
