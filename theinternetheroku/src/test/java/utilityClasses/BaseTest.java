@@ -20,8 +20,11 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
 public class BaseTest {
+    //Other Methods
     protected UtilityMethods utils;  
     protected AssertionMethods asserts;
+
+    //Libraries
     protected WebDriver driver;
     protected WebDriverWait wait;
     protected JavascriptExecutor js;
