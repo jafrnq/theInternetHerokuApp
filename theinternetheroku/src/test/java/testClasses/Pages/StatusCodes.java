@@ -7,11 +7,14 @@ import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
+import io.restassured.response.Response;
+import io.restassured.RestAssured;
+
 import java.net.HttpURLConnection;
 
 import utilityClasses.BaseTest;
 
-public class Typos extends BaseTest{
+public class StatusCodes extends BaseTest{
 
     @BeforeMethod
     public void navigateToPage(){
@@ -29,8 +32,6 @@ public class Typos extends BaseTest{
 
     @Test
     public void assertInPageCode(){
-        //click code 200
-        //Assert url end 
         
         assertInPageStatusCode("200");
         assertInPageStatusCode("301");
@@ -38,8 +39,17 @@ public class Typos extends BaseTest{
         assertInPageStatusCode("500");
         
     }
+    
+    
     //Selenium doesnt have a build in method to handle HTTP status codes
-    public void assertHTTPcode(){}
+    //Using RestAssured
+    @Test
+    public void assertHTTPcode(){
+        assertHTTPcode(200);
+        assertInPageStatusCode("301");
+        assertHTTPcode(404);
+        assertHTTPcode(500);
+    }
     
     
     //Helper Methods
@@ -54,12 +64,16 @@ public class Typos extends BaseTest{
         driver.navigate().back();
     }
 
-    // public int  assertStatusCodes(){
-    //     HttpURLConnection connection = (HttpURLConnection) new URL(url).openConnection();
-    //     connection.setRequestMethod("GET");
-    //     connection.connect();
-    //     return connection.getResponseCode();
-    // }
+    public void assertHTTPcode(int codeName){
+        Response response = RestAssured.get("https://the-internet.herokuapp.com/status_codes/" + codeName);
+        System.out.println("HTTP Response: " + response.getStatusCode());
+        assertTrue(response.getStatusCode() == codeName);
+
+        // WebElement code = driver.findElement(By.linkText(codeName));
+        // code.click();
+        // Response response = RestAssured.get(driver.getCurrentUrl());
+    }
+
     
 }
 

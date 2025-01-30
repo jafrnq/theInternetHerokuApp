@@ -1,6 +1,8 @@
 // BaseTest.java
 package utilityClasses;
 
+import static org.testng.Assert.assertTrue;
+
 import java.time.Duration;
 import java.util.HashMap;
 import java.util.Random;
@@ -16,6 +18,10 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeTest;
 
+import io.restassured.response.Response;
+import io.restassured.RestAssured;
+
+
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
 
@@ -29,12 +35,13 @@ public class BaseTest {
     protected WebDriverWait wait;
     protected JavascriptExecutor js;
     public Actions actions;
+    protected Response response;
 
     protected String downloadPath  = "G:\\CODES SA SSD\\Automation things\\Selenium\\theInternetHerokuApp\\theinternetheroku\\src\\test\\resources\\downloads";
     
     @BeforeTest
     public void driverSetUp() {
-
+        //Setup Chrome
         HashMap<String, Object> chromePrefs = new HashMap<>();
             chromePrefs.put("download.default_directory", downloadPath);
             chromePrefs.put("download.prompt_for_download", false);
@@ -45,14 +52,20 @@ public class BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.setExperimentalOption("prefs", chromePrefs);
         driver = new ChromeDriver(options);
-    
+        
         System.out.println("Driver set up");
         actions = new Actions(driver);
         utils = new UtilityMethods(driver);  // Pass
         asserts = new AssertionMethods(driver); // Pass
         wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         js = (JavascriptExecutor) driver;
+        
+
         driver.get("https://the-internet.herokuapp.com/");
+        
+        // Response response = RestAssured.get("https://the-internet.herokuapp.com/");
+        // assertTrue(response.getStatusCode() == 200, "Page is not accessible");
+
     }
     
     @AfterMethod
@@ -70,5 +83,6 @@ public class BaseTest {
     }
 
 
-    //waitmethods
+    
+    
 }

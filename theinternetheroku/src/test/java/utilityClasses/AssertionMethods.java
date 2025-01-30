@@ -6,6 +6,10 @@ import java.time.Duration;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 
@@ -49,7 +53,7 @@ public void testHeaderContent(String expectedHeaderText) {
         }
     }
 
-
+    //Downloads Assertion
         public void assertFileInDownloads(String fileName){
         System.out.println("File name" + fileName);
         File downloadedFile = new File(downloadPath, fileName);
@@ -57,6 +61,4 @@ public void testHeaderContent(String expectedHeaderText) {
 
         System.out.println(fileName + " is found in downloads folder");
     }
-
-
 }

@@ -25,7 +25,8 @@ public class checklist {
  // Forgot Password
  // Entry Ad
  // File Download
-*/
+ // Status Codes
+ */
 
 // Challenging DOM
 // Digest Authentication (user and pass: admin)
@@ -53,7 +54,6 @@ public class checklist {
 // Shifting Content
 // Slow Resources
 // Sortable Data Tables
-// Status Codes
 // Typos
 // WYSIWYG Editor
     
