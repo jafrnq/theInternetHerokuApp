@@ -39,6 +39,9 @@ public class StatusCodes extends BaseTest{
         assertInPageStatusCode("500");
         
     }
+
+    @Test 
+    public void testRestAssured(){}
     
     
     //Selenium doesnt have a build in method to handle HTTP status codes
